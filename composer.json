@@ -1,0 +1,20 @@
+{
+	"name": "danhunsaker/openwest-cronfreephp",
+	"type": "library",
+	"description": "A repository for the 2013 OpenWest Conference presentation \"Removing Cron From The PHP Workflow\".",
+	"authors": [
+		{
+			"name": "Daniel Hunsaker",
+			"email": "@danhunsaker"
+		}
+	],
+	"repositories": [
+		{ "type": "git", "url": "https://github.com/chrisboulton/php-resque-scheduler" },
+		{ "type": "git", "url": "https://github.com/EllisLab/CodeIgniter" }
+	],
+	"require": {
+		"chrisboulton/php-resque-scheduler": "dev-master",
+		"EllisLab/CodeIgniter": "dev-develop"
+	},
+	"minimum-stability": "dev"
+}
