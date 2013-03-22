@@ -5,15 +5,15 @@
 	"authors": [
 		{
 			"name": "Daniel Hunsaker",
-			"email": "@danhunsaker"
+			"email": "danhunsaker@gmail.com"
 		}
 	],
 	"repositories": [
-		{ "type": "git", "url": "https://github.com/chrisboulton/php-resque-scheduler" },
+		{ "type": "git", "url": "https://github.com/danhunsaker/php-resque-scheduler" },
 		{ "type": "git", "url": "https://github.com/EllisLab/CodeIgniter" }
 	],
 	"require": {
-		"chrisboulton/php-resque-scheduler": "dev-master",
+		"chrisboulton/php-resque-scheduler": "master",
 		"EllisLab/CodeIgniter": "dev-develop"
 	},
 	"minimum-stability": "dev"

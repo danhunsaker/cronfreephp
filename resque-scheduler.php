@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php
 
 $composer_autoload = __DIR__ . '/vendor/autoload.php';
@@ -14,18 +13,16 @@ if (!class_exists('Composer\Autoload\ClassLoader', false)) {
 	);
 }
 
-// Look for an environment variable with 
-$RESQUE_PHP = getenv('RESQUE_PHP');
-if (!empty($RESQUE_PHP)) {
-	require_once $RESQUE_PHP;
-}
-
 $REDIS_BACKEND = getenv('REDIS_BACKEND');
+$REDIS_BACKEND_DB = getenv('REDIS_BACKEND_DB');
 if(!empty($REDIS_BACKEND)) {
-	Resque::setBackend($REDIS_BACKEND);
+	if (empty($REDIS_BACKEND_DB)) 
+		Resque::setBackend($REDIS_BACKEND);
+	else
+	Resque::setBackend($REDIS_BACKEND, $REDIS_BACKEND_DB);
 }
-
-// Set log level for resque-scheduler
+	
+	// Set log level for resque-scheduler
 $logLevel = 0;
 $LOGGING = getenv('LOGGING');
 $VERBOSE = getenv('VERBOSE');
@@ -66,3 +63,6 @@ if ($PIDFILE) {
 fwrite(STDOUT, "\033[00;32m*** Starting scheduler worker\033[00m\n");
 $worker->work($interval);
 fwrite(STDOUT, "\033[01;34m*** Stopping scheduler worker\033[00m\n");
+
+/* End of file resque-scheduler.php */
+/* Location: ./resque-scheduler.php */
