@@ -11,17 +11,41 @@ class Resque_engine extends CI_Controller
 			show_error('You cannot start the Resque engine from the web!  Use the command line!', 409, 'Must Use The Command Line');
 		}
 	}
-
+	
+	public function index()
+	{
+		global $argv;
+		$command_line = implode(' ', $argv);
+		
+		fwrite(STDOUT, "USAGE: {$command_line} ( scheduler | workers )\n");
+		fwrite(STDOUT, "\n");
+		fwrite(STDOUT, "\tscheduler: Start the Resque Scheduler process.\n");
+		fwrite(STDOUT, "\tworkers:   Start the Resque Worker process(es).\n");
+		fwrite(STDOUT, "\n");
+		fwrite(STDOUT, "The configuration options for each of the engine types above are set in the ");
+		fwrite(STDOUT, "resque_engine controller, but can be overridden by specifying them at the ");
+		fwrite(STDOUT, "beginning of the command line.\n");
+		fwrite(STDOUT, "\n");
+	}
+	
 	public function scheduler()
 	{
-		require_once FCPATH . 'resque-scheduler.php';
+		require_once FCPATH . '..' . DIRECTORY_SEPARATOR . 'resque-scheduler.php';
 	}
 
 	public function workers()
 	{
-		putenv('COUNT=5');
-		putenv('QUEUE=default');
-		require_once FCPATH . 'resque-workers.php';
+		if (getenv('COUNT') === FALSE)
+		{
+			putenv('COUNT=5');
+		}
+		
+		if (getenv('QUEUE') === FALSE)
+		{
+			putenv('QUEUE=default');
+		}
+		
+		require_once FCPATH . '..' . DIRECTORY_SEPARATOR . 'resque-workers.php';
 	}
 }
 

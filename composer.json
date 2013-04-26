@@ -16,5 +16,10 @@
 		"chrisboulton/php-resque-scheduler": "master",
 		"EllisLab/CodeIgniter": "dev-develop"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"autoload": {
+		"psr-0": {
+			"CronFree": "jobs"
+		}
+	}
 }

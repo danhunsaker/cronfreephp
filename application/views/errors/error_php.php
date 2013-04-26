@@ -25,6 +25,34 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (php_sapi_name() === 'cli' OR defined('STDIN'))
+{
+	fwrite(STDERR, "A PHP Error was encountered\n");
+	fwrite(STDERR, "\n");
+	fwrite(STDERR, "Severity: {$severity}\n");
+	fwrite(STDERR, "Message:  {$message}\n");
+	fwrite(STDERR, "Filename: {$filepath}\n");
+	fwrite(STDERR, "Line Number: {$line}\n");
+	fwrite(STDERR, "\n");
+
+	if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE)
+	{
+		fwrite(STDERR, "Backtrace:\n");
+		foreach(debug_backtrace() as $error)
+		{
+			if(isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0)
+			{
+				fwrite(STDERR, "\tFile: {$error['file']}\n");
+				fwrite(STDERR, "\tLine: {$error['line']}\n");
+				fwrite(STDERR, "\tFunction: {$error['function']}\n");
+				fwrite(STDERR, "\t\n");
+			}
+		}
+	}
+	return;
+}
+//	else:
 ?>
 
 <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">

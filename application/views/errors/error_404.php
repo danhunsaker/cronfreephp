@@ -25,6 +25,15 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+if (php_sapi_name() === 'cli' OR defined('STDIN'))
+{
+	$message = strip_tags($message);
+	fwrite(STDERR, "{$heading} - {$message}\n");
+	fwrite(STDERR, "\n");
+	return;
+}
+//	else:
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

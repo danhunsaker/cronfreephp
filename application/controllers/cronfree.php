@@ -6,7 +6,12 @@ class Cronfree extends CI_Controller {
 	{
 		$this->load->view('home');
 	}
-
+	
+	public function demo()
+	{
+		
+	}
+	
 }
 
 /* End of file cronfree.php */
