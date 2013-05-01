@@ -1,6 +1,6 @@
 <?php
 
-class Resque
+class CI_Resque
 {
 	public function __construct()
 	{
