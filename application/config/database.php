@@ -81,11 +81,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $_SERVER['DB1_HOST'],
-	'port'     => $_SERVER['DB1_PORT'],
-	'username' => $_SERVER['DB1_USER'],
-	'password' => $_SERVER['DB1_PASS'],
-	'database' => $_SERVER['DB1_NAME'],
+	'hostname' => @$_SERVER['DB1_HOST'],
+	'port'     => @$_SERVER['DB1_PORT'],
+	'username' => @$_SERVER['DB1_USER'],
+	'password' => @$_SERVER['DB1_PASS'],
+	'database' => @$_SERVER['DB1_NAME'],
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => TRUE,

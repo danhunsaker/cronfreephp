@@ -12,11 +12,11 @@ abstract class SuperJob
 	final public function setUp()
 	{
 		$job_type = get_class($this);
-		echo "Starting {$job_type} job...";
+		echo "Starting {$job_type} job...\n";
 		
 		if (function_exists('get_instance'))
 		{
-			$this->instance &= get_instance();
+			$this->instance = get_instance();
 		}
 		else
 		{
@@ -29,7 +29,7 @@ abstract class SuperJob
 	final public function tearDown()
 	{
 		$job_type = get_class($this);
-		echo "Finishing {$job_type} job...";
+		echo "Finishing {$job_type} job...\n\n";
 		
 		if ( ! $this->success)
 		{

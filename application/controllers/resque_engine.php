@@ -30,6 +30,11 @@ class Resque_engine extends CI_Controller
 	
 	public function scheduler()
 	{
+		if (getenv('INTERVAL') === FALSE)
+		{
+			putenv('INTERVAL=1');
+		}
+		
 		require_once FCPATH . '..' . DIRECTORY_SEPARATOR . 'resque-scheduler.php';
 	}
 
@@ -38,6 +43,11 @@ class Resque_engine extends CI_Controller
 		if (getenv('COUNT') === FALSE)
 		{
 			putenv('COUNT=5');
+		}
+		
+		if (getenv('INTERVAL') === FALSE)
+		{
+			putenv('INTERVAL=1');
 		}
 		
 		if (getenv('QUEUE') === FALSE)

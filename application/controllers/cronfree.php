@@ -81,6 +81,7 @@ class Cronfree extends CI_Controller
 		$this->load->library('resque');
 		$this->load->library('resquescheduler');
 		$args = $this->input->post(NULL, TRUE);
+		unset($args['submit']);
 		
 		switch (strtolower($job_type))
 		{
