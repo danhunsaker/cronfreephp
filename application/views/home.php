@@ -35,5 +35,20 @@
 			<li>SQL-compatible RDBMS</li>
 			<li>phpredis and proctitle extensions</li>
 		</ul>
+		<p>
+			Further documentation is forthcoming.  In the meantime, feel free to look through the code, as 
+			well as the documentation for the supporting projects:
+			<ul>
+				<li><a href="https://github.com/chrisboulton/php-resque">PHP Resque</a> - Provides queue management and basic worker support.</li>
+				<li><a href="https://github.com/chrisboulton/php-resque-scheduler">PHP Resque Scheduler</a> - As its name implies, handles scheduling for Resque.</li>
+				<li><a href="http://codeigniter.com/">CodeIgniter</a> - Optional; used for demo, but you can use whatever framework you like (even none at all).</li>
+			</ul>
+			If you want to dig deeper, have a look at the dependencies:
+			<ul>
+				<li><a href="https://github.com/colinmollenhour/credis">Credis</a> - PHP library for communicating with Redis.  Uses phpredis if available.</li>
+				<li><a href="https://redis.io/">Redis</a> - A super-fast atomic key-value store.</li>
+				<li><a href="https://github.com/nicolasff/phpredis">phpredis</a> - A PHP extension that handles the actual communication with Redis.  This isn't <em>strictly</em> a dependency, but can make things more stable.</li>
+			</ul>
+		</p>
 	</body>
 </html>

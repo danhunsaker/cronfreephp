@@ -42,7 +42,7 @@ class Resque_engine extends CI_Controller
 		
 		if (getenv('QUEUE') === FALSE)
 		{
-			putenv('QUEUE=default');
+			putenv('QUEUE=immediate,high,standard,low');
 		}
 		
 		require_once FCPATH . '..' . DIRECTORY_SEPARATOR . 'resque-workers.php';
