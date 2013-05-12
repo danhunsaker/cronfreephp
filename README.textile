@@ -1,0 +1,37 @@
+h1. Cron-Free PHP
+
+From the 2013 OpenWest Conference presentation "Removing Cron From The PHP Workflow" by Dan Hunsaker
+
+h2. Abstract
+
+Several practices from the early days of the web persist in modern PHP development. Among these is the use of cron for handling background tasks. By utilizing PHP's CLI SAPI, and the process backgrounding methodologies of the target operating system, cron can be replaced in most of these scenarios with a long-running PHP script, sometimes called a worker.
+
+This project was built to accompany a presentation which covers one of the methods for creating and using workers.  The presentation, delivered at the 2013 OpenWest Conference, included a demonstration using this project, which is based on a real-world implementation using the same underlying technologies.  The purpose of this project is to provide a solid foundation on which the presentation attendees (and other interested parties) can build their own real-world projects, without having to spend time developing and/or integrating the underlying functionality.
+
+h2. Requirements
+
+* Unix-Based OS (forking support)
+* Web Server (apache, lighttp, nginx...)
+* PHP 5.3 or higher (CLI _and_ web SAPIs) with pcntl, posix, and json extensions
+* Redis server
+* Composer
+* git
+
+h2. Recommended
+
+* SQL-compatible RDBMS
+* phpredis and proctitle extensions
+
+h2. Using This Project
+
+Further documentation is forthcoming.  In the meantime, feel free to look through the demo code, as well as the documentation for the supporting projects:
+
+* "PHP Resque":https://github.com/chrisboulton/php-resque - Provides queue management and basic worker support.
+* "PHP Resque Scheduler":https://github.com/chrisboulton/php-resque-scheduler - As its name implies, handles scheduling for Resque.
+* "CodeIgniter":http://codeigniter.com/ - Optional; used for demo, but you can use whatever framework you like (or even none at all).
+
+If you want to dig deeper, have a look at the dependencies:
+
+* "Credis":https://github.com/colinmollenhour/credis - PHP library for communicating with Redis.  Uses phpredis if available.
+* "Redis":https://redis.io/ - A super-fast atomic key-value store.
+* "phpredis":https://github.com/nicolasff/phpredis - A PHP extension that handles the actual communication with Redis.  This isn't _strictly_ a dependency, but can make things more stable.
